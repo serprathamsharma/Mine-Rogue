@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dv007p651x3ef"]
+
+[ext_resource type="PackedScene" uid="uid://dq4rtpuwbll1v" path="res://scenes/player.tscn" id="1_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://dipknkuraablo" path="res://scenes/rock.tscn" id="2_w8frs"]
+[ext_resource type="Resource" uid="uid://5x2bnkmmj8tt" path="res://data/rocks/stone.tres" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://cbi02ym3gwpd6" path="res://scenes/map/level1/base_map.tscn" id="4_mx8sn"]
+
+[node name="Level" type="Node2D" unique_id=28304679]
+
+[node name="main_1" parent="." unique_id=2126226641 instance=ExtResource("4_mx8sn")]
+
+[node name="RockContainer" type="Node2D" parent="." unique_id=1988218437]
+
+[node name="Rock" parent="RockContainer" unique_id=1404016214 instance=ExtResource("2_w8frs")]
+position = Vector2(56, 42)
+data = ExtResource("3_w8frs")
+
+[node name="Rock2" parent="RockContainer" unique_id=1409469496 instance=ExtResource("2_w8frs")]
+position = Vector2(71, 27)
+
+[node name="Rock3" parent="RockContainer" unique_id=1621769326 instance=ExtResource("2_w8frs")]
+position = Vector2(56, 58)
+
+[node name="Rock4" parent="RockContainer" unique_id=1232673658 instance=ExtResource("2_w8frs")]
+position = Vector2(56, 27)
+
+[node name="OreContainer" type="Node2D" parent="." unique_id=1823065528]
+
+[node name="Player" parent="." unique_id=1028650799 instance=ExtResource("1_w7c3h")]
+position = Vector2(131, 79)
