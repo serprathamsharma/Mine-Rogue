@@ -10,3 +10,7 @@ func _ready() -> void:
 	hud.set_inventory(level.player.inventory)
 	
 	level.change_depth.connect(hud.update_depth)
+
+
+func _on_level_exit_mine() -> void:
+	print("exit")

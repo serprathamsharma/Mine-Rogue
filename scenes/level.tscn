@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cy3qqmvvoamen" path="res://scenes/exit_ladder.tscn" id="11_t1rx8"]
 
 [node name="Level" type="Node2D" unique_id=28304679]
+y_sort_enabled = true
 script = ExtResource("1_olg7q")
 rock_types = Array[ExtResource("2_olg7q")]([ExtResource("3_w8frs"), ExtResource("4_t1rx8"), ExtResource("6_64w2a"), ExtResource("7_fpun6"), ExtResource("5_8iemx")])
 
@@ -32,3 +33,4 @@ position = Vector2(-14, 82)
 position = Vector2(89, 44)
 
 [connection signal="broken" from="RockContainer/Rock" to="." method="_on_rock_broken"]
+[connection signal="ladder_used" from="ExitLadder" to="." method="_on_exit_ladder_ladder_used"]

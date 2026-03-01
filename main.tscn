@@ -10,3 +10,5 @@ script = ExtResource("1_h2yge")
 [node name="Level" parent="." unique_id=28304679 instance=ExtResource("1_ig7tw")]
 
 [node name="HUD" parent="." unique_id=737976172 instance=ExtResource("2_0xm2m")]
+
+[connection signal="exit_mine" from="Level" to="." method="_on_level_exit_mine"]

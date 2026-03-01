@@ -26,6 +26,7 @@ var down_ladder: Area2D
 var rocks_remaining: int = 0
 
 signal change_depth
+signal exit_mine
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -149,3 +150,11 @@ func _on_down_ladder_used() -> void:
 	current_depth += 1
 	change_depth.emit(current_depth)
 	setup_map()
+
+
+
+func _on_exit_ladder_ladder_used() -> void:
+	if !player.can_move:
+		return #if player is alr using the ladder then skip this logic
+	player.can_move = false
+	exit_mine.emit()
