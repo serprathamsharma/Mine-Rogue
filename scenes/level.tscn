@@ -25,4 +25,4 @@ position = Vector2(13, 50)
 [node name="OreContainer" type="Node2D" parent="." unique_id=1823065528]
 
 [node name="Player" parent="." unique_id=1028650799 instance=ExtResource("1_w7c3h")]
-position = Vector2(87, 55)
+position = Vector2(-14, 82)
