@@ -10,6 +10,7 @@ region = Rect2(56, 8, 32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ku54x"]
 
 [node name="Ladder" type="Area2D" unique_id=1474603121]
+z_index = -1
 script = ExtResource("1_xb1tl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1403189781]

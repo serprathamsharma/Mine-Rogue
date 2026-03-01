@@ -5,15 +5,14 @@ var player_on_ladder: bool = false
 signal ladder_used
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_present("climb_down_ladder"):
+	if event.is_action_pressed("climb_down_ladder"):
 		if player_on_ladder:
-			print("Next level")
+			ladder_used.emit()
 		
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_on_ladder = true
-
 
 
 
