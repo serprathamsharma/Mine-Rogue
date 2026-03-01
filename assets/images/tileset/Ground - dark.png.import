@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5c7cj14m6wx8"
-path="res://.godot/imported/pkmn tiles (3).png-2c4f12488fee743e746aee6d8f39785d.ctex"
+uid="uid://dwnhs865sgk2"
+path="res://.godot/imported/Ground - dark.png-7ef63bcaf46378d8d6b5c03d24471d6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/tiles/pkmn tiles (3).png"
-dest_files=["res://.godot/imported/pkmn tiles (3).png-2c4f12488fee743e746aee6d8f39785d.ctex"]
+source_file="res://assets/images/tileset/Ground - dark.png"
+dest_files=["res://.godot/imported/Ground - dark.png-7ef63bcaf46378d8d6b5c03d24471d6d.ctex"]
 
 [params]
 

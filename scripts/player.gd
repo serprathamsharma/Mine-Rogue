@@ -18,6 +18,9 @@ var pickaxe_strength: int = 1
 func _ready() ->  void:
 	hitbox_offset = hitbox.position # Initialise hitbox offset 
 
+func reset(pos: Vector2) -> void:
+	position = pos
+
 func _physics_process(_delta: float) -> void:
 	
 	#handle mining input
