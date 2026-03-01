@@ -26,3 +26,5 @@ position = Vector2(13, 50)
 
 [node name="Player" parent="." unique_id=1028650799 instance=ExtResource("1_w7c3h")]
 position = Vector2(-14, 82)
+
+[connection signal="broken" from="RockContainer/Rock" to="." method="_on_rock_broken"]

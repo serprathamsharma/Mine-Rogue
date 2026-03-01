@@ -1,7 +1,9 @@
 extends Node2D
 
-const FILL_PERCENTAGE: float = 0.4 
+const FILL_PERCENTAGE: float = 0.4
+const LADDER_CHANCE: float = 0.2
 const ROCK_SCENE= preload("res://scenes/rock.tscn")
+const LADDER_SCENE = preload("res://scenes/ladder.tscn")
 
 @export var rock_types: Array[RockData] = []
 
@@ -11,6 +13,9 @@ const ROCK_SCENE= preload("res://scenes/rock.tscn")
 
 
 var current_depth : int = 1
+var down_ladder: Area2D
+var rocks_remaining: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_generate_rocks()
@@ -45,6 +50,8 @@ func _generate_rocks() -> void:
 			
 	available_cells.shuffle()
 	var num_rocks:= int(available_cells.size()* FILL_PERCENTAGE)
+	rocks_remaining = num_rocks
+	
 	var valid_rocks : Array[RockData] = []
 	for rock in rock_types:
 		if current_depth >= rock.min_depth:
@@ -63,6 +70,7 @@ func _generate_rocks() -> void:
 		
 		rock.global_position = local_pos
 		rock_container.add_child(rock)
+		rock.broken.connect(_on_rock_broken)
 		
 func get_random_rock(options: Array[RockData]) -> RockData:
 	var total_weight: int = 0
@@ -78,3 +86,20 @@ func get_random_rock(options: Array[RockData]) -> RockData:
 			return rock 
 			
 	return options[0] # fallback to stone if nothing 
+
+func _on_rock_broken(pos: Vector2) -> void:
+	rocks_remaining -= 1
+	if down_ladder != null:
+		return
+	var drop_ladder := randf() < LADDER_CHANCE
+	if drop_ladder or rocks_remaining ==0:
+		_create_down_ladder(pos)
+
+func _create_down_ladder(pos: Vector2) -> void:
+	down_ladder = LADDER_SCENE.instantiate()
+	down_ladder.position = pos
+	add_child(down_ladder)
+	down_ladder.ladder_used.connect(_on_down_ladder_used)
+	
+func _on_down_ladder_used() -> void:
+	print("Move")
