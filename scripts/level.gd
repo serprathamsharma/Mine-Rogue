@@ -4,11 +4,13 @@ const FILL_PERCENTAGE: float = 0.4
 const ROCK_SCENE= preload("res://scenes/rock.tscn")
 
 @export var rock_types: Array[RockData] = []
+
 @onready var rock_container: Node2D = $RockContainer
 @onready var current_map: Node2D = $Map
-@onready var player: Player = $Playersssawaw
+@onready var player: Player = $Player
 
-var current_depth : int = 1	
+
+var current_depth : int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_generate_rocks()
@@ -17,7 +19,7 @@ func _ready() -> void:
 func _postion_objects() -> void:
 	var player_spawn: Marker2D = current_map.get_node("PlayerSpawn")
 	player.reset(player_spawn.position)
-func _generate_rocks() -> void:	
+func _generate_rocks() -> void:
 	#clear exisitng rocks
 	for child in rock_container.get_children():
 		child.queue_free()

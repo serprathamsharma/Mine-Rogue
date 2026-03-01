@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://dv007p651x3ef"]
 
+[ext_resource type="Script" uid="uid://dr574ka4kpwus" path="res://scripts/level.gd" id="1_olg7q"]
 [ext_resource type="PackedScene" uid="uid://dq4rtpuwbll1v" path="res://scenes/player.tscn" id="1_w7c3h"]
+[ext_resource type="Script" uid="uid://c5aqjxngkr80c" path="res://scripts/rock_data.gd" id="2_olg7q"]
 [ext_resource type="PackedScene" uid="uid://dipknkuraablo" path="res://scenes/rock.tscn" id="2_w8frs"]
+[ext_resource type="Resource" uid="uid://5x2bnkmmj8tt" path="res://data/rocks/stone.tres" id="3_w8frs"]
+[ext_resource type="Resource" uid="uid://cwuo4r4g0wxp1" path="res://data/rocks/iron.tres" id="4_t1rx8"]
+[ext_resource type="Resource" uid="uid://cpgytykhycdi8" path="res://data/rocks/amethyst.tres" id="5_8iemx"]
+[ext_resource type="Resource" uid="uid://c66r41fbgq3wt" path="res://data/rocks/gold.tres" id="6_64w2a"]
+[ext_resource type="Resource" uid="uid://c2vyw2s5okswa" path="res://data/rocks/diamond.tres" id="7_fpun6"]
 [ext_resource type="PackedScene" uid="uid://tya1jj5jlljc" path="res://scenes/levels/map_1.tscn" id="8_olg7q"]
 
 [node name="Level" type="Node2D" unique_id=28304679]
+script = ExtResource("1_olg7q")
+rock_types = Array[ExtResource("2_olg7q")]([ExtResource("3_w8frs"), ExtResource("4_t1rx8"), ExtResource("6_64w2a"), ExtResource("7_fpun6"), ExtResource("5_8iemx")])
 
 [node name="Map" parent="." unique_id=2098287933 instance=ExtResource("8_olg7q")]
 
@@ -16,4 +25,4 @@ position = Vector2(13, 50)
 [node name="OreContainer" type="Node2D" parent="." unique_id=1823065528]
 
 [node name="Player" parent="." unique_id=1028650799 instance=ExtResource("1_w7c3h")]
-position = Vector2(38, 68)
+position = Vector2(87, 55)
