@@ -8,6 +8,8 @@ var last_direction: Vector2 = Vector2.RIGHT
 var detected_rocks: Array = []
 var pickaxe_strength: int = 1
 
+var inventory = Inventory
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var hitbox_collision_shape_2d: CollisionShape2D = $Hitbox/CollisionShape2D
@@ -17,6 +19,7 @@ var pickaxe_strength: int = 1
 
 func _ready() ->  void:
 	hitbox_offset = hitbox.position # Initialise hitbox offset 
+	inventory = Inventory.new(4)
 
 func reset(pos: Vector2) -> void:
 	position = pos
@@ -125,5 +128,4 @@ func get_most_overlapping_rocks() -> Rock:
 	return best_rock
 
 func add_ore(data: OreData) -> bool:
-	print(data)
-	return true
+	return inventory.add_item(data)

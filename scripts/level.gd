@@ -17,12 +17,15 @@ const MAPS = [
 @onready var current_map: Node2D = $Map
 @onready var player: Player = $Player
 @onready var level: Node2D = $"."
+@onready var exit_ladder: Area2D = $ExitLadder
 
 
 var last_map_index: int
 var current_depth : int = 1
 var down_ladder: Area2D
 var rocks_remaining: int = 0
+
+signal change_depth
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,6 +67,8 @@ func _generate_map() -> void:
 func _position_objects() -> void:
 	var player_spawn: Marker2D = current_map.get_node("PlayerSpawn")
 	player.reset(player_spawn.position)
+	#position exit  ladder
+	exit_ladder.position = player_spawn.position + Vector2(0, -16)
 
 func _generate_rocks() -> void:
 	
@@ -142,4 +147,5 @@ func _create_down_ladder(pos: Vector2) -> void:
 	
 func _on_down_ladder_used() -> void:
 	current_depth += 1
+	change_depth.emit(current_depth)
 	setup_map()

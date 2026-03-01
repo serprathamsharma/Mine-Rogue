@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://c66r41fbgq3wt" path="res://data/rocks/gold.tres" id="6_64w2a"]
 [ext_resource type="Resource" uid="uid://c2vyw2s5okswa" path="res://data/rocks/diamond.tres" id="7_fpun6"]
 [ext_resource type="PackedScene" uid="uid://tya1jj5jlljc" path="res://scenes/levels/map_1.tscn" id="8_olg7q"]
+[ext_resource type="PackedScene" uid="uid://cy3qqmvvoamen" path="res://scenes/exit_ladder.tscn" id="11_t1rx8"]
 
 [node name="Level" type="Node2D" unique_id=28304679]
 script = ExtResource("1_olg7q")
@@ -26,5 +27,8 @@ position = Vector2(13, 50)
 
 [node name="Player" parent="." unique_id=1028650799 instance=ExtResource("1_w7c3h")]
 position = Vector2(-14, 82)
+
+[node name="ExitLadder" parent="." unique_id=1346365432 instance=ExtResource("11_t1rx8")]
+position = Vector2(89, 44)
 
 [connection signal="broken" from="RockContainer/Rock" to="." method="_on_rock_broken"]

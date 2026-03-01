@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cy3qqmvvoamen"]
+
+[ext_resource type="Script" uid="uid://2dkg3ompodem" path="res://exit_ladder.gd" id="1_u3nkt"]
+[ext_resource type="Texture2D" uid="uid://dcnp6tov4idls" path="res://assets/images/ladder/ladder.png" id="1_woq1v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3nkt"]
+atlas = ExtResource("1_woq1v")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q23v3"]
+
+[node name="ExitLadder" type="Area2D" unique_id=1346365432]
+script = ExtResource("1_u3nkt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470888784]
+position = Vector2(0, -12)
+texture = SubResource("AtlasTexture_u3nkt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=490620626]
+shape = SubResource("RectangleShape2D_q23v3")
